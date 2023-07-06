@@ -206,6 +206,5 @@ async def fetch_all_fed(client, message):
                         fed_list.append(lo[2:38])
         else:
             Y = X[44:].splitlines()
-            for lol in Y:
-               fed_list.append(lol[2:38])
+            fed_list.extend(lol[2:38] for lol in Y)
     return fed_list

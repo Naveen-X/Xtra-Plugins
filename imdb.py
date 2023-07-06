@@ -32,7 +32,7 @@ async def _(client,message):
     if not query:
         await msg.edit("`Please Give Me An Input.`")
         return
-    url = "https://www.imdb.com/find?ref_=nv_sr_fn&q=" + query + "&s=all"
+    url = f"https://www.imdb.com/find?ref_=nv_sr_fn&q={query}&s=all"
     r = await get_content(url)
     soup = BeautifulSoup(r, "lxml")
     o_ = soup.find("td", {"class": "result_text"})
@@ -77,8 +77,7 @@ async def _(client,message):
     if r_json.get("aggregateRating"):
         res_str += f"<b>Rating Count :</b> <code>{r_json['aggregateRating']['ratingCount']}</code> \n<b>Rating Value :</b> <code>{r_json['aggregateRating']['ratingValue']}</code> \n"
     res_str += f"<b>URL :</b> {url}"
-    thumb = r_json.get('image')
-    if thumb:
+    if thumb := r_json.get('image'):
         await msg.delete()
         return await reply.reply_photo(thumb, caption=res_str)
     await msg.edit(res_str)  

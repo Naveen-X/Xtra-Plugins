@@ -20,18 +20,12 @@ async def add_msg_update_msg(last_msg_id):
 
 async def get_msg_id(mail_id):
     midhun = await mail.find_one({"_id": "MAIL_DETAILS"})
-    if midhun:
-        return midhun["last_msg_id"]
-    else:
-        return False
+    return midhun["last_msg_id"] if midhun else False
 
 
 async def get_mail_id():
     midhun = await mail.find_one({"_id": "MAIL_DETAILS"})
-    if midhun:
-        return midhun["mail_id"]
-    else:
-        return False
+    return midhun["mail_id"] if midhun else False
 
 async def delete_mail_id():
     midhun = await mail.find_one({"_id": "MAIL_DETAILS"})

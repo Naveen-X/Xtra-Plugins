@@ -37,24 +37,24 @@ Error:   {pokemon.get("error")}"""
     number = str(pokemon.get("number"))
     species = str(pokemon.get("species"))
     typo = pokemon.get("types")
-    types = "".join(str(tu) + ",  " for tu in typo)
+    types = "".join(f"{str(tu)},  " for tu in typo)
     lol = pokemon.get("abilities")
     lmao = lol.get("normal")
     ok = ""
     for ty in lmao:
-        ok = str(ty) + ",  "
+        ok = f"{str(ty)},  "
 
     kk = lol.get("hidden")
-    hm = "".join(str(pq) + ",  " for pq in kk)
+    hm = "".join(f"{str(pq)},  " for pq in kk)
     hell = pokemon.get("eggGroups")
-    uio = "".join(str(x) + ",  " for x in hell)
+    uio = "".join(f"{str(x)},  " for x in hell)
     height = pokemon.get("height")
     weight = pokemon.get("weight")
     yes = pokemon.get("family")
     Id = str(yes.get("id"))
     evo = str(yes.get("evolutionStage"))
     pol = yes.get("evolutionLine")
-    xy = "".join(str(p) + ",  " for p in pol)
+    xy = "".join(f"{str(p)},  " for p in pol)
     start = pokemon.get("starter")
     start = "No" if not start else "True"
     leg = pokemon.get("legendary")

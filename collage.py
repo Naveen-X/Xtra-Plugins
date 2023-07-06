@@ -21,7 +21,7 @@ from main_startup.helper_func.basic_helpers import edit_or_reply, get_text
 
 async def create_s_collage(file_path, filename, width, stark_h):
     """Create Image Collage"""
-    img_stark = [filepath for filepath in pathlib.Path(file_path).glob("**/*")]
+    img_stark = list(pathlib.Path(file_path).glob("**/*"))
     margin_size = 2
     while True:
         img_stark_list = list(img_stark)
