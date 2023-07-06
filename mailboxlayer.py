@@ -21,7 +21,7 @@ async def email_info(email_: str):
           text_ = await resp.text()
   soup = BeautifulSoup(text_, features="html.parser")
   scl_secret = soup.findAll('input')[1]['value']
-  key = md5((str(email_) + scl_secret).encode()).hexdigest()
+  key = md5((email_ + scl_secret).encode()).hexdigest()
   url = f'https://mailboxlayer.com/php_helper_scripts/email_api_n.php?secret_key={key}&email_address={email_}'
   async with aiohttp.ClientSession() as session:
       async with session.get(url) as resp:

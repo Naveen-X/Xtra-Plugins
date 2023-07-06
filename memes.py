@@ -174,8 +174,8 @@ async def type_my_ass(client, msg):
     await typew.edit(typing_symbol)
     await asyncio.sleep(sleep_time)
     for character in message:
-        old_text = old_text + "" + character
-        typing_text = old_text + "" + typing_symbol
+        old_text = f"{old_text}{character}"
+        typing_text = f"{old_text}{typing_symbol}"
         await typew.edit(typing_text)
         await asyncio.sleep(sleep_time)
         await typew.edit(old_text)

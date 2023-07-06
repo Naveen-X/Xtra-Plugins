@@ -173,7 +173,7 @@ async def all_mails(client, message):
     r = requests.get(link)
     r_json = r.json()
     msg_ids = [lol.get("id") for lol in r_json]
-    if msg_ids == []:
+    if not msg_ids:
         await pablo.edit("You Didn't Receive Any Mails")
         return
     for id in msg_ids:

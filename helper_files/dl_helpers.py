@@ -83,7 +83,7 @@ async def api_request(data):
     sequence_num = random.randint(0, 0xFFFFFFFF)
     if not isinstance(data, list):
         data = [data]
-    url = f'https://g.api.mega.co.nz/cs'
+    url = 'https://g.api.mega.co.nz/cs'
     params = {'id': sequence_num}
     async with aiohttp.ClientSession() as session:
         response = await session.post(url, data=json.dumps(data), params=params)
@@ -93,7 +93,5 @@ async def api_request(data):
 def find_between(start_string, end_string, to_find):
     _to_ = f"{start_string}(.*?){end_string}"
     result = re.search(_to_, to_find)
-    if not result:
-        return None
-    return result.group(1)
+    return None if not result else result[1]
    
